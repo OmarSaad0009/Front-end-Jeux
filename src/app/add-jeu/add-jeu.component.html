@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un Jeu :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Jeu</label>
+        <input type="text" [(ngModel)]="newJeu.idJeu"
+        name="idJeu" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom Jeu</label>
+        <input type="text"[(ngModel)]= "newJeu.nomJeu"
+        name="nomJeu" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Prix Jeu</label>
+        <input type="number" [(ngModel)]= "newJeu.prixJeu"
+        name="prixJeu" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date création</label>
+        <input type="date" [(ngModel)]= "newJeu.dateCreation"
+        name="dateCreation" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Genre</label>
+            <select class="form-control form-control-lg" id="idG" name="idG"
+            [(ngModel)]="newidG">
+             <option *ngFor="let genre of genres" [value]="genre.idG" >
+             {{genre.nomG}}
+            </option>
+            </select>
+            </div>
+        <div class="mt-2">
+        <button type="submit" (click)="addJeu()"class="btn btn-success">Ajouter</button>
+        <div>
+            <h3>{{message}}</h3>
+        </div>
+        </div>
+        </form>
+        </div>

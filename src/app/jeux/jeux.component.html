@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+        <table class="table table-striped">
+        <thead>
+        <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date Création</th><th>Genre</th>
+        </thead>
+        <tbody *ngFor="let jeu of jeux">
+            <tr>
+        <td>{{jeu.idJeu}}</td>
+        <td>{{jeu.nomJeu}}</td>
+        <td>{{jeu.prixJeu}}</td>
+        <td>{{jeu.dateCreation | date:'dd/MM/yyyy'}}</td>
+        <td>{{jeu.genre?.nomG}}</td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerJeu(jeu)">Supprimer</a></td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateJeu',jeu.idJeu]">Modifier</a></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Jeu :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >ID Jeu</label>
+    <input readonly type="text" [(ngModel)]="currentJeu.idJeu" name="idJeu" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom Jeu</label>
+    <input type="text"[(ngModel)]= "currentJeu.nomJeu" name="nomJeu" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Prix Jeu</label>
+    <input type="number" [(ngModel)]= "currentJeu.prixJeu" name="prixJeu" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date création</label>
+<input type="date" [ngModel]="currentJeu.dateCreation | date: 'yyyy-MM-dd'"
+(ngModelChange)=" currentJeu.dateCreation= $event" name="dateCreation" class="form-control">
+</div>
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+    <label>Genre</label>
+    <select class="form-control form-control-lg" id="idG" name="idG" [(ngModel)]="updatedGenreId">
+    <option *ngFor="let genre of genres" [value]="genre.idG" >{{genre.nomG}}</option>
+    </select>
+    </div>
+<div class="mt-2">
+<button type="submit" (click)="updateJeu()" class="btn btn-success">Modifer</button>
+</div>
+</form>
+</div>
